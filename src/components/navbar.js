@@ -1,60 +1,60 @@
 import React, { Component } from "react";
-import {
-  Navbar,
-  Nav,
-  NavDropdown,
-  Form,
-  FormControl,
-  Button
-} from "react-bootstrap";
+import { Link } from "react-router-dom";
 import "../style/App.css";
 import "../style/style.css";
 
 class NavBar extends Component {
   render() {
     return (
-      <Navbar bg="light" expand="lg" className="fixed-top Nav-vertispace">
-        <Navbar.Brand className="Nav-space" href="#home">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light Nav-vertispace">
+        <Link class="navbar-brand Nav-space" to="home">
           GoCart
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto">
-            <Nav.Link className="Nav-space" href="#men">
-              Men
-            </Nav.Link>
-            <Nav.Link className="Nav-space" href="#women">
-              Women
-            </Nav.Link>
-            <Nav.Link className="Nav-space" href="#women">
-              Kids
-            </Nav.Link>
-            {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown> */}
-          </Nav>
-          <Form inline>
-            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-            <Button variant="outline-success">Search</Button>
-          </Form>
-          <Nav className="">
-            <Nav.Link className="Nav-space" href="#login">
-              Login
-            </Nav.Link>
-            <Nav.Link className="Nav-space" href="#women">
-              Signup
-            </Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
+        </Link>
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav mr-auto">
+            <li className="nav-item">
+              <Link to="men" className="nav-link Nav-space">
+                Men
+              </Link>
+            </li>
+            <li className="nav-item Nav-space">
+              <Link className="nav-link" to="women">
+                Women
+              </Link>
+            </li>
+            <li className="nav-item Nav-space">
+              <Link className="nav-link" to="kids">
+                Kids
+              </Link>
+            </li>
+          </ul>
+          <ul className="navbar-nav ml-auto">
+            <form className="form-inline my-2 my-lg-0">
+              <input
+                className="form-control mr-sm-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button
+                className="btn btn-outline-success my-2 my-sm-0"
+                type="submit">
+                Search
+              </button>
+            </form>
+            <li className="nav-item Nav-space">
+              <Link className="nav-link" to="login">
+                Login
+              </Link>
+            </li>
+            <li className="nav-item Nav-space">
+              <Link className="nav-link" to="signup">
+                Signup
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </nav>
     );
   }
 }
